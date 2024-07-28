@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<x-app-layout>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -16,9 +17,10 @@
                     </h2>
                     <p class='body'>{{ $categorypost->post->body }}</p>
                     <p class='title'>{{ $categorypost->tag->id}}</p>
-                     <p class='title'>{{ $categorypost->tag->price->name}}</p>
-                      <p class='title'>{{ $categorypost->tag->category->name}}</p>
-                    <form action="/posts/{{ $categorypost->post->id }}" id="form_{{ $categorypost->post->id }}" method="post">
+                     <p class='title'>{{ $categorypost->tag->price->price}}</p>
+                      <p class='title'>{{ $categorypost->tag->category->category}}</p>
+                       <p class='title'>{{ $categorypost->tag->area->area}}</p>
+                    <form action="/posts/{{ $categorypost->id }}" id="form_{{ $categorypost->id }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $categorypost->post->id }})">delete</button> 
@@ -28,12 +30,6 @@
         </div>
         
         
-        @foreach ($tags as $tag)
-             <p class='title'>{{ $tag->id}}</p>
-             <p class='title'>{{ $tag->category->name}}</p>
-              <p class='title'>{{ $tag->price->name}}</p>
-               <p class='title'>{{ $tag->area->name}}</p>
-        @endforeach
         
         <a href='/posts/create'>create</a>
         
@@ -49,3 +45,4 @@
         
     </body>
 </html>
+</x-app-layout>

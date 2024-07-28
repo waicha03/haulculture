@@ -14,18 +14,19 @@ class PostController extends Controller
     {
         return view('posts.index')->with([
             'categoryposts' => $categorypost->get(),
-            'tags' => $tag->get(),
             ]);
     } 
+    
+    
     /**
      * 特定IDのpostを表示する
      *
      * @params Object Post // 引数の$postはid=1のPostインスタンス
      * @return Reposnse post view
      */
-    public function show(Post $test)
+    public function show(CategoryPost $categorypost)
     {
-        return view('posts.show')->with(['post' => $post]);
+        return view('posts.show')->with(['categorypost' => $categorypost]);
      //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
     }
         //
