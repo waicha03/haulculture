@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('post_id')->references('id')->on('posts');
-            $table->string('title', 200);
+            $table->string('title', 200)->nullable();
             $table->string('comment', 200);
             $table->integer('review');
         });

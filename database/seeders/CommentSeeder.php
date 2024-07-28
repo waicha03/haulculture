@@ -14,6 +14,15 @@ class CommentSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('comments')->insert([
+            'user_id'=>1,
+            'post_id'=>1,
+            'title'=>null,
+            'comment'=>'あああああ',
+            'review'=>3
+            ]);//
+        
+        
         //
     }
 }

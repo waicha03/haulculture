@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-        AreaSeeder::class,
-        CategoryPostSeeder::class,
-        CategorySeeder::class,
-        CommentSeeder::class,
-        PostSeeder::class,
-        PriceSeeder::class,
-        TagSeeder::class,
         UserSeeder::class,
+        AreaSeeder::class,
+        PriceSeeder::class,
+        CategorySeeder::class,
+        TagSeeder::class,
+        PostSeeder::class,
+        CategoryPostSeeder::class,
+        CommentSeeder::class,
 
     ]);
         // \App\Models\User::factory(10)->create();

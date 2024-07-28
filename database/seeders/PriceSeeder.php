@@ -14,6 +14,16 @@ class PriceSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('prices')->insert([
+            'price'=>'~5,000円',
+             ]);////
         //
+        DB::table('prices')->insert([
+            'price'=>'5,000~10,000円',
+             ]);////
+             
+        DB::table('prices')->insert([
+            'price'=>'10,000~20,000円',
+             ]);////
     }
 }

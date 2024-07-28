@@ -14,6 +14,22 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+       DB::table('tags')->insert([
+            'category_id'=>2,
+            'area_id'=>4,
+             'price_id'=>3,
+            ]);// //
+            
+       DB::table('tags')->insert([
+            'category_id'=>1,
+            'area_id'=>3,
+             'price_id'=>2,
+            ]);// //
+            
+        DB::table('tags')->insert([
+            'category_id'=>3,
+            'area_id'=>1,
+             'price_id'=>1,
+            ]);// //    
     }
 }

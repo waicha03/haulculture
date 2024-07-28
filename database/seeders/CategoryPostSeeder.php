@@ -15,9 +15,18 @@ class CategoryPostSeeder extends Seeder
     public function run(): void
     {
        DB::table('category_posts')->insert([
-            'name'=>'abc',
-            'email'=>'abc@gmail.com',
-            'password'=> Hash::make('abcd1234'),
+            'post_id'=>1,
+            'tag_id'=>1,
+            ]); //
+            
+        DB::table('category_posts')->insert([
+            'post_id'=>2,
+            'tag_id'=>3,
+            ]); //
+            
+        DB::table('category_posts')->insert([
+            'post_id'=>3,
+            'tag_id'=>3,
             ]); //
     }
 }
