@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+     public function comments()   
+        {
+            return $this->hasMany(Comment::class);  
+        }
+        
+    public function category_posts()   
+        {
+            return $this->hasMany(CategoryPost::class);  
+        }
+        
+    
+    
     use HasFactory;
 }

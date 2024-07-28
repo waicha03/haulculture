@@ -15,7 +15,23 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            'category'=>'下北沢駅南',
+            'category'=>'ストリート系',
+             ]);////
+             
+        DB::table('categories')->insert([
+            'category'=>'アメカジ系',
+             ]);////
+             
+        DB::table('categories')->insert([
+            'category'=>'ヴィンテージ系',
+             ]);////     
+             
+        DB::table('categories')->insert([
+            'category'=>'リメイク系',
+             ]);////
+             
+        DB::table('categories')->insert([
+            'category'=>'カジュアル系',
              ]);////
     }
 }
