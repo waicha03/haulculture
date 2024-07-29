@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    public function category_posts()   
+    public function post_tag()   
         {
-                return $this->hasMany(CategoryPost::class); 
+                return $this->hasMany(Post_tag::class); 
             }
                 
     public function category()
@@ -27,5 +27,9 @@ class Tag extends Model
             return $this->belongsTo(Price::class);
         }
         
+        public function posts(){
+    return $this->belongsToMany(Post::class);
+   }
+    
     use HasFactory;
 }

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         CategorySeeder::class,
         TagSeeder::class,
         PostSeeder::class,
-        CategoryPostSeeder::class,
+        Post_tagSeeder::class,
         CommentSeeder::class,
 
     ]);

@@ -10,10 +10,10 @@ use App\Models\Tag;
 
 class PostController extends Controller
 {
-    public function index(CategoryPost $categorypost,Tag $tag)
+    public function index(Tag $tag)
     {
         return view('posts.index')->with([
-            'categoryposts' => $categorypost->get(),
+            'tags' => $tag->get(),
             ]);
     } 
     
@@ -24,30 +24,31 @@ class PostController extends Controller
      * @params Object Post // 引数の$postはid=1のPostインスタンス
      * @return Reposnse post view
      */
-    public function show(CategoryPost $categorypost)
+    public function show(Tag $tag)
     {
-        return view('posts.show')->with(['categorypost' => $categorypost]);
+        return view('posts.show')->with(['tag' => $tag]);
      //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
     }
         //
-   public function create(Category $category)
+   public function create(Tag $tag)
     {
-    return view('posts.create')->with(['categories' => $category->get()]);
+    return view('posts.create')->with(['tag' => $tag->get()]);
     }
     
-    public function store(PostRequest $request, Post $post)
+    public function store(PostRequest $request, Tag $tag)
     {
         $input = $request['post'];
+        $input = $request[''];
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/' . $tag->id);
     }
     
-    public function edit(Post $post)
+    public function edit(Tag $tag)
     {
-        return view('posts.edit')->with(['post' => $post]);
+        return view('posts.edit')->with(['tag' => $tag]);
     }
     
-    public function update(PostRequest $request, Post $post)
+    public function update(PostRequest $request,Tag $tag)
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
@@ -55,9 +56,9 @@ class PostController extends Controller
          return redirect('/posts/' . $post->id);
     }
     
-    public function delete(Post $post)
+    public function delete(Tag $tag)
     {
-    $post->delete();
+    $test->delete();
     return redirect('/');
     }
     

@@ -10,20 +10,21 @@
     <body>
         <h1>Blog Name</h1>
         <div class='posts'>
-            @foreach ($categoryposts as $categorypost)
+            @foreach ($tags as $tag)
                 <div class='post'>
-                    <h2 class='title'>
-                         <a href="/posts/{{ $categorypost->id }}">{{ $categorypost->post->title }}</a>
-                    </h2>
-                    <p class='body'>{{ $categorypost->post->body }}</p>
-                    <p class='title'>{{ $categorypost->tag->id}}</p>
-                     <p class='title'>{{ $categorypost->tag->price->price}}</p>
-                      <p class='title'>{{ $categorypost->tag->category->category}}</p>
-                       <p class='title'>{{ $categorypost->tag->area->area}}</p>
-                    <form action="/posts/{{ $categorypost->id }}" id="form_{{ $categorypost->id }}" method="post">
+                   @foreach($tag->posts as $post)
+                        <h2 class='title'>
+                             <a href="/posts/{{ $tag->id }}">タイトル：{{ $post->title }}</a>
+                        </h2>
+                        <p class='body'>本文：{{ $post->body }}</p>
+                    @endforeach
+                     <p class='title'>値段：{{ $tag->price->price}}</p>
+                      <p class='title'>カテゴリー：{{ $tag->category->category}}</p>
+                       <p class='title'>エリア：{{ $tag->area->area}}</p>
+                    <form action="/posts/{{ $tag->id }}" id="form_{{ $tag->id }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $categorypost->post->id }})">delete</button> 
+                        <button type="button" onclick="deletePost({{ $tag->id }})">delete</button> 
                     </form>
                 </div>
             @endforeach

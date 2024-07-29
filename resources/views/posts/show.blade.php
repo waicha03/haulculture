@@ -9,24 +9,19 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1 class="title">
-            {{ $categorypost->post->title }}
-        </h1>
-        <div class="content">
-            <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $categorypost->post->body }}</p>    
-            </div>
-            
-        </div>
-    
+          @foreach($tag->posts as $post)
+                        <h2 class='title'>
+                             <a href="/posts/{{ $post->id }}">タイトル：{{ $post->title }}</a>
+                        </h2>
+                        <p class='body'>本文：{{ $post->body }}</p>
+            @endforeach
         
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/index">戻る</a>
         </div>
         
         <div class="edit">
-            <a href="/posts/{{ $categorypost->id }}/edit">edit</a>
+            <a href="/posts/{{ $tag->id }}/edit">edit</a>
         </div>
         
     </body>

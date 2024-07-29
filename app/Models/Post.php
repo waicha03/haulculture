@@ -12,11 +12,13 @@ class Post extends Model
             return $this->hasMany(Comment::class);  
         }
         
-    public function category_posts()   
+    public function post_tag()   
         {
-            return $this->hasMany(CategoryPost::class);  
+            return $this->hasMany(Post_tag::class);  
         }
-        
+    public function tags(){
+    return $this->belongsToMany(Tag::class);
+    }
     
     
     use HasFactory;
